@@ -6,11 +6,4 @@ const getHome = (req, res) => {
 };
 export {
     getHome,
-    // getPeliculaId,
-    // getPeliculas,
-    // nuevaPelicula,
-    // agregarPelicula,
-    // eliminarPelicula,
-    // getPeliculasBorradas, 
-    // restaurarPelicula
 }

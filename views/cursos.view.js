@@ -92,7 +92,143 @@ export function crearHome(){
             </div>
         </div>
     </section>
+
+    
+
+<form class="max-w-md mx-auto">
+  <div class="relative z-0 w-full mb-5 group">
+    <input type="text" name="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+    <label for="nombre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del curso</label>
+  </div>
+
+  <!-- Select para categoría -->
+  <div class="relative z-0 w-full mb-5 group">
+    <select name="categoria" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
+      <option value="" disabled selected>Seleccionar categoría</option>
+      <option value="frontend">Frontend</option>
+      <option value="backend">Backend</option>
+      <option value="devops">DevOps</option>
+      <option value="datascience">Data Science</option>
+      <option value="cybersecurity">Cybersecurity</option>
+    </select>
+    <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Categoría</label>
+  </div>
+
+  <!-- Descripción -->
+  <div class="relative z-0 w-full mb-5 group">
+    <textarea name="descripcion" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required></textarea>
+    <label for="descripcion" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Descripción</label>
+  </div>
+
+  <!-- Select para tecnologías -->
+  <div class="relative z-0 w-full mb-5 group">
+    <select name="tecnologias" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
+      <option value="" disabled selected>Seleccionar tecnología</option>
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="API">API</option>
+      <option value="linux">Linux</option>
+      <option value="node.js">Node.js</option>
+      <option value="express">Express</option>
+      <option value="otros">Otros</option>
+    </select>
+    <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Tecnología</label>
+  </div>
+
+  <!-- Input para horas del curso (solo números) -->
+  <div class="relative z-0 w-full mb-5 group">
+    <input type="number" name="horas" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+    <label for="horas" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Horas del curso</label>
+  </div>
+
+  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+</form>
+
     `;
     return html;
 };
+
+export function crearCursos(cursos){
+    let html = `
+    <section class="mt-10">`;
+    if (cursos.length === 0) {
+        html += `<p>Lo lamentamos, No hay cursos disponibles.</p>`;
+    } else {
+        cursos.forEach(curso => {
+        html += `
+        <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+            <img
+                alt="${curso.nombre}"
+                src="../img/${curso.img}"
+                class="h-56 w-full object-cover"
+            />
+
+            <div class="bg-white p-4 sm:p-6">
+                <p class="block text-xs text-gray-500">Duración: ${curso.horas} horas</p>
+
+                <a href="#">
+                <h2 class="mt-0.5 text-lg text-gray-900">${curso.nombre}</h2>
+                </a>
+
+                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                ${curso.descripcion}
+                </p>
+
+                <a href="/cursos/${curso.id}" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Más Info + 
+                </span>
+                </a>
+            </div>
+        </article>`;
+        });
+    }
+    html+= `</section>
+    `;
+
+    return html;
+}
+
+export function detalleCurso(curso){
+    let html = `
+    <article class="flex bg-white transition hover:shadow-xl">
+        <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
+            <p>Duración: ${curso.horas} horas</p>
+        </div>
+
+        <div class="hidden sm:block sm:basis-56">
+            <img
+            alt="${curso.nombre}"
+            src="../img/${curso.img}"
+            class="aspect-square h-full w-full object-cover"
+            />
+        </div>
+
+        <div class="flex flex-1 flex-col justify-between">
+            <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+            <a href="#">
+                <h2 class="font-bold uppercase text-gray-900">
+                ${curso.nombre}
+                </h2>
+            </a>
+
+            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                ${curso.descripcion}
+            </p>
+            </div>
+
+            <div class="flex gap-x-2">
+            `;
+            curso.tecnologias.forEach(tag => {
+                html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${tag}</span>`;
+            });
+            html += `
+            </div>
+        </div>
+        </article>
+    `;
+
+    return html;
+}
 

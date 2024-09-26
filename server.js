@@ -8,4 +8,4 @@ app.use( express.urlencoded({ extended: true }) )
 
 app.use(cursoRoute)
 
-app.listen(2025, () => console.log("Servidor funcionando"))
+app.listen(3333, () => console.log("Servidor funcionando"))
