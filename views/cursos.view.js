@@ -11,9 +11,9 @@ export function crearPagina(titulo, contenido){
             
         </head>
         <body>
-            <nav class="border-gray-200 bg-gray-200 shadow-lg px-4 py-4">
+            <nav class="border-gray-200 bg-gray-200 shadow-lg px-6 py-4">
                 <div class="container mx-auto flex flex-wrap items-center justify-between h-10">
-                    <a href="#" class="flex items-center space-x-3">
+                    <a href="/" class="flex items-center space-x-3">
                         <img src="../img/logo-learnhub.png" class="h-8" alt="LearnHub Logo" />
                             <h1 class="text-2xl font-semibold whitespace-nowrap text-blue-600/75">Learn<span class="text-blue-800">Hub</span></h1>
         </a>
@@ -33,10 +33,13 @@ export function crearPagina(titulo, contenido){
         <div class="hidden md:block w-full md:w-auto" id="mobile-menu">
             <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium">
                 <li>
-                    <a href="/" class="bg-blue-700 md:bg-transparent text-white block pl-3 pr-4 py-2 md:text-blue-700 md:p-0 rounded focus:outline-none" aria-current="page">Home</a>
+                    <a href="/" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">Inicio</a>
                 </li>
                 <li>
-                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">Cursos <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                    <a href="/cursos" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">Cursos</a>
+                </li>
+                <li>
+                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">Categorias <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
                 <!-- Dropdown menu -->
                 <div id="dropdownNavbar" class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
                     <ul class="py-1" aria-labelledby="dropdownLargeButton">
@@ -93,9 +96,116 @@ export function crearHome(){
         </div>
     </section>
 
-    
+    `;
+    return html;
+};
 
-    <form class="max-w-md mx-auto">
+export function crearCursos(cursos) {
+    let html = `
+    <a href="/" type="button" class="mt-10 ms-6 text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver al inicio</a>
+    <section class="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+    `;
+    
+    if (cursos.length === 0) {
+        html += `<p>Lo lamentamos, No hay cursos disponibles.</p>`;
+    } else {
+        cursos.forEach(curso => {
+        html += `
+        <article class="flex flex-col justify-between overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+            <img
+                alt="${curso.nombre}"
+                src="../img/${curso.img}"
+                class="h-56 w-full object-cover"
+            />
+
+            <div class="bg-white p-4 sm:p-6 flex flex-col flex-grow">
+                <div class="flex items-center flex-wrap ml-0 mb-4">
+                    <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.9" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                    </svg>
+
+                    <p class="text-xs text-gray-500">Duración: ${curso.horas} horas</p>
+                </div>
+                
+                <h2 class="mt-1 text-lg text-gray-800">${curso.nombre}</h2>
+
+                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                    ${curso.descripcion}
+                </p>
+
+                <div class="mt-auto pt-4">
+                    <a href="/cursos/${curso._id}" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            Más Info +
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </article>`;
+        });
+    }
+    html += `</section>`;
+
+    return html;
+}
+
+
+export function detalleCurso(curso){
+    let html = `
+    <a href="/" type="button" class="mt-10 ms-6 text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver al inicio</a>
+    <article class="flex bg-white mx-auto mt-10 shadow-lg rounded-lg w-1/2">
+
+        <div class="hidden sm:block sm:basis-56">
+            <img
+            alt="${curso.nombre}"
+            src="../img/${curso.img}"
+            class="h-full w-full object-cover rounded-l-lg"
+            />
+        </div>
+
+        <div class="flex flex-1 flex-col justify-between">
+            <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+            <a href="#">
+                <h2 class="font-medium text-xl uppercase text-gray-900">
+                ${curso.nombre}
+                </h2>
+            </a>
+
+            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                ${curso.descripcion}
+            </p>
+
+
+            <div class="flex items-center flex-wrap ml-0">
+                <svg class="w-[19px] h-[19px] text-gray-400 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.9" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                </svg>
+
+                <p class="mt-2 ml-1 mb-2 line-clamp-3 text-sm/relaxed text-gray-400">
+                Duración: ${curso.horas} horas
+            </p>
+                </div>
+            
+            
+            <div class="flex items-center flex-wrap"> 
+            `;
+            curso.tecnologias.forEach(tag => {
+                html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 mt-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${tag}</span>`;
+            });
+            html += `
+            </div>
+            </div>
+        </div>
+        </article>
+    `;
+
+    return html;
+}
+
+export function crearCurso(){
+    let html = `
+    <h1> Agregar un curso </h1>
+    <form action='/cursos/nuevo' class="max-w-md mx-auto">
     <div class="relative z-0 w-full mb-5 group">
         <input type="text" name="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label for="nombre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del curso</label>
@@ -120,20 +230,53 @@ export function crearHome(){
         <label for="descripcion" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Descripción</label>
     </div>
 
-    <!-- Select para tecnologías -->
-    <div class="relative z-0 w-full mb-5 group">
-        <select name="tecnologias" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
-        <option value="" disabled selected>Seleccionar tecnología</option>
-        <option value="HTML">HTML</option>
-        <option value="CSS">CSS</option>
-        <option value="JavaScript">JavaScript</option>
-        <option value="API">API</option>
-        <option value="linux">Linux</option>
-        <option value="node.js">Node.js</option>
-        <option value="express">Express</option>
-        <option value="otros">Otros</option>
-        </select>
-        <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Tecnología</label>
+
+<!-- Switches para tecnologías en dos columnas -->
+    <div class="relative z-0 w-full mb-5 group ">
+        <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Tecnologías</p>
+        
+        <!-- Grid de dos columnas -->
+        <div class="grid grid-cols-2 gap-2 ">
+            <div class="flex items-center mb-4">
+                <input id="html" type="checkbox" name="tecnologias" value="HTML" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="html" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">HTML</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="css" type="checkbox" name="tecnologias" value="CSS" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="css" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">CSS</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="javascript" type="checkbox" name="tecnologias" value="JavaScript" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="javascript" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">JavaScript</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="api" type="checkbox" name="tecnologias" value="API" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="api" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">API</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="linux" type="checkbox" name="tecnologias" value="Linux" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="linux" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Linux</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="node" type="checkbox" name="tecnologias" value="Node.js" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="node" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Node.js</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="express" type="checkbox" name="tecnologias" value="Express" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="express" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Express</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="otros" type="checkbox" name="tecnologias" value="Otros" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="otros" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Otros</label>
+            </div>
+        </div>
     </div>
 
     <!-- Input para horas del curso (solo números) -->
@@ -143,92 +286,94 @@ export function crearHome(){
     </div>
 
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-    </form>
-
-    `;
-    return html;
-};
-
-export function crearCursos(cursos) {
-    let html = `
-    <section class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">`;
-    if (cursos.length === 0) {
-        html += `<p>Lo lamentamos, No hay cursos disponibles.</p>`;
-    } else {
-        cursos.forEach(curso => {
-        html += `
-        <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
-            <img
-                alt="${curso.nombre}"
-                src="../img/${curso.img}"
-                class="h-56 w-full object-cover"
-            />
-
-            <div class="bg-white p-4 sm:p-6">
-                <p class="block text-xs text-gray-500">Duración: ${curso.horas} horas</p>
-
-                <a href="#">
-                    <h2 class="mt-0.5 text-lg text-gray-900">${curso.nombre}</h2>
-                </a>
-
-                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                    ${curso.descripcion}
-                </p>
-
-                <a href="/cursos/${curso._id}" class="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                    Más Info + 
-                    </span>
-                </a>
-            </div>
-        </article>`;
-        });
-    }
-    html += `</section>`;
-
+    </form> `;
     return html;
 }
 
-export function detalleCurso(curso){
+export function modificarCurso(curso){
     let html = `
-    <article class="flex bg-white mx-auto mt-10 shadow-lg rounded-lg w-1/2">
+    <h1> Modicar curso </h1>
+    <form action='/cursos/modificar/${curso._id}' class="max-w-md mx-auto">
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="text" name="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="nombre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del curso</label>
+    </div>
 
-        <div class="hidden sm:block sm:basis-56">
-            <img
-            alt="${curso.nombre}"
-            src="../img/${curso.img}"
-            class="h-full w-full object-cover rounded-l-lg"
-            />
-        </div>
+    <!-- Select para categoría -->
+    <div class="relative z-0 w-full mb-5 group">
+        <select name="categoria" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
+        <option value="" disabled selected>Seleccionar categoría</option>
+        <option value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+        <option value="devops">DevOps</option>
+        <option value="datascience">Data Science</option>
+        <option value="cybersecurity">Cybersecurity</option>
+        </select>
+        <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Categoría</label>
+    </div>
 
-        <div class="flex flex-1 flex-col justify-between">
-            <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-            <a href="#">
-                <h2 class="font-bold uppercase text-gray-900">
-                ${curso.nombre}
-                </h2>
-            </a>
+    <!-- Descripción -->
+    <div class="relative z-0 w-full mb-5 group">
+        <textarea name="descripcion" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required></textarea>
+        <label for="descripcion" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Descripción</label>
+    </div>
 
-            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                ${curso.descripcion}
-            </p>
 
-            <p class="mt-2 mb-2 line-clamp-3 text-sm/relaxed text-gray-400">
-                Duración: ${curso.horas} horas
-            </p>
-            
-            <div class="flex items-center flex-wrap"> 
-            `;
-            curso.tecnologias.forEach(tag => {
-                html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 mt-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${tag}</span>`;
-            });
-            html += `
+<!-- Switches para tecnologías en dos columnas -->
+    <div class="relative z-0 w-full mb-5 group ">
+        <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Tecnologías</p>
+        
+        <!-- Grid de dos columnas -->
+        <div class="grid grid-cols-2 gap-2 ">
+            <div class="flex items-center mb-4">
+                <input id="html" type="checkbox" name="tecnologias" value="HTML" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="html" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">HTML</label>
             </div>
+
+            <div class="flex items-center mb-4">
+                <input id="css" type="checkbox" name="tecnologias" value="CSS" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="css" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">CSS</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="javascript" type="checkbox" name="tecnologias" value="JavaScript" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="javascript" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">JavaScript</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="api" type="checkbox" name="tecnologias" value="API" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="api" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">API</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="linux" type="checkbox" name="tecnologias" value="Linux" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="linux" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Linux</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="node" type="checkbox" name="tecnologias" value="Node.js" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="node" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Node.js</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="express" type="checkbox" name="tecnologias" value="Express" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="express" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Express</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="otros" type="checkbox" name="tecnologias" value="Otros" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="otros" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Otros</label>
             </div>
         </div>
-        </article>
-    `;
+    </div>
 
+    <!-- Input para horas del curso (solo números) -->
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="number" name="horas" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="horas" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Horas del curso</label>
+    </div>
+
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    </form> `;
     return html;
 }
-
