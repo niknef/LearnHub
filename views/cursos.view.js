@@ -6,7 +6,7 @@ export function crearPagina(titulo, contenido){
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>${titulo}</title>
-            <link href="./src/output.css" rel="stylesheet">
+            <link href="../src/output.css" rel="stylesheet">
             <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
             
         </head>
@@ -41,19 +41,19 @@ export function crearPagina(titulo, contenido){
                 <div id="dropdownNavbar" class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
                     <ul class="py-1" aria-labelledby="dropdownLargeButton">
                     <li>
-                        <a href="/cursos/frontend" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">FrontEnd</a>
+                        <a href="/cursos?categoria=frontend" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">FrontEnd</a>
                     </li>
                     <li>
-                        <a href="/cursos/backend" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">BackEnd</a>
+                        <a href="cursos?categoria=backend" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">BackEnd</a>
                     </li>
                     <li>
-                        <a href="/cursos/devops" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">DevOps</a>
+                        <a href="cursos?categoria=devops" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">DevOps</a>
                     </li>
                     <li>
-                        <a href="/cursos/datascience" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Data Science</a>
+                        <a href="cursos?categoria=datascience" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Data Science</a>
                     </li>
                     <li>
-                        <a href="/cursos/cybersecurity" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Cyber Security</a>
+                        <a href="cursos?categoria=cybersecurity" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Cyber Security</a>
                     </li>
                     </ul>
                 </div>
@@ -175,7 +175,7 @@ export function crearCursos(cursos) {
                     ${curso.descripcion}
                 </p>
 
-                <a href="/cursos/${curso.id}" class="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                <a href="/cursos/${curso._id}" class="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
                     <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                     Más Info + 
                     </span>
@@ -191,16 +191,13 @@ export function crearCursos(cursos) {
 
 export function detalleCurso(curso){
     let html = `
-    <article class="flex bg-white transition hover:shadow-xl">
-        <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-            <p>Duración: ${curso.horas} horas</p>
-        </div>
+    <article class="flex bg-white mx-auto mt-10 shadow-lg rounded-lg w-1/2">
 
         <div class="hidden sm:block sm:basis-56">
             <img
             alt="${curso.nombre}"
             src="../img/${curso.img}"
-            class="aspect-square h-full w-full object-cover"
+            class="h-full w-full object-cover rounded-l-lg"
             />
         </div>
 
@@ -215,14 +212,18 @@ export function detalleCurso(curso){
             <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
                 ${curso.descripcion}
             </p>
-            </div>
 
-            <div class="flex gap-x-2">
+            <p class="mt-2 mb-2 line-clamp-3 text-sm/relaxed text-gray-400">
+                Duración: ${curso.horas} horas
+            </p>
+            
+            <div class="flex items-center flex-wrap"> 
             `;
             curso.tecnologias.forEach(tag => {
-                html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${tag}</span>`;
+                html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 mt-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${tag}</span>`;
             });
             html += `
+            </div>
             </div>
         </div>
         </article>
