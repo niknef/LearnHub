@@ -7,3 +7,4 @@ Plataforma de cursos - Node.js - Express - MongoDb (API REST - CRUD)
 -npm install express
 -npm install -D tailwindcss
 npx tailwindcss init
+-npm install mongodb@6.9
