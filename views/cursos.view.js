@@ -47,16 +47,16 @@ export function crearPagina(titulo, contenido){
                         <a href="/cursos?categoria=frontend" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">FrontEnd</a>
                     </li>
                     <li>
-                        <a href="cursos?categoria=backend" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">BackEnd</a>
+                        <a href="/cursos?categoria=backend" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">BackEnd</a>
                     </li>
                     <li>
-                        <a href="cursos?categoria=devops" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">DevOps</a>
+                        <a href="/cursos?categoria=devops" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">DevOps</a>
                     </li>
                     <li>
-                        <a href="cursos?categoria=datascience" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Data Science</a>
+                        <a href="/cursos?categoria=data_science" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Data Science</a>
                     </li>
                     <li>
-                        <a href="cursos?categoria=cybersecurity" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Cyber Security</a>
+                        <a href="/cursos?categoria=cybersecurity" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Cyber Security</a>
                     </li>
                     </ul>
                 </div>
@@ -100,9 +100,47 @@ export function crearHome(){
     return html;
 };
 
-export function crearCursos(cursos) {
+export function crearCursos(cursos, categoria) {
+    // Función para capitalizar la primera letra de cada palabra
+    const formatCategoryName = (category) => {
+        if (!category) return '';
+        return category
+            .split('_') // Separar por guiones si se usa en los nombres
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' '); // Unir nuevamente con espacios
+    };
+
+    let titulo = categoria ? `Cursos de ${formatCategoryName(categoria)}` : 'Todos nuestros cursos';
     let html = `
-    <a href="/" type="button" class="mt-10 ms-6 text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver al inicio</a>
+    <h1 class="text-5xl font-light text-gray-600 mt-6 ms-8">${titulo}</h1>
+    <div class="flex justify-between items-center mt-6 mx-4">
+        
+        <a href="/" type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 ms-4 ">
+            Volver al inicio
+        </a>
+
+        <div class="flex space-x-4 me-4">
+
+            <a href="/cursos?ordenDuracion=asc${categoria ? `&categoria=${categoria}` : ''}" type="button" class="flex justify-center items-center text-white bg-pink-700 hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2">
+            <svg class="w-6 h-6 text-white/85 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5m0 14-4-4m4 4 4-4"/>
+            </svg>
+            <svg class="w-6 h-6 text-white/85 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            </svg>
+            </a>
+
+            <a href="/cursos?ordenDuracion=desc${categoria ? `&categoria=${categoria}` : ''}" type="button" class="flex justify-center items-center text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2">
+            <svg class="w-6 h-6 text-white/85 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v13m0-13 4 4m-4-4-4 4"/>
+            </svg>
+
+            <svg class="w-6 h-6 text-white/85 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            </svg>
+            </a>
+        </div>
+    </div>
     <section class="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
     `;
     
@@ -202,7 +240,7 @@ export function detalleCurso(curso){
     return html;
 }
 
-export function crearCurso(){
+export function crearCursoNuevo(){
     let html = `
     <h1> Agregar un curso </h1>
     <form action='/cursos/nuevo' class="max-w-md mx-auto">

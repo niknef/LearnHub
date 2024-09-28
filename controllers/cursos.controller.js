@@ -7,10 +7,11 @@ export const getHome = (req, res) => {
 
 export const getCursos = (req, res) => {
     const filtros = req.query; // Obtenemos los filtros de la URL
+    const categoria = req.query.categoria || undefined; // Captura la categoría de la query
 
     cursoService.getCursos(filtros) // Pasamos los filtros a la función getCursos
         .then(cursos => {
-            res.send(cursoView.crearPagina("Listado de cursos", cursoView.crearCursos(cursos)))
+            res.send(cursoView.crearPagina("Listado de cursos", cursoView.crearCursos(cursos, categoria)))
         }).catch(error => {
             console.error(error);
             res.status(500).send("Error al obtener los cursos");
