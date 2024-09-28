@@ -5,133 +5,191 @@
         "categoria": "frontend",
         "descripcion": "Aprende los conceptos básicos de HTML y CSS para construir sitios web estáticos y estilizados.",
         "tecnologias": ["HTML", "CSS", "Flexbox", "Grid"],
-        "horas": "20",
-        "img": "https://example.com/img/html-css-project.png"
-    },
-    {
+        "horas": 20,
+        "img": "frontend.jpg"
+      },
+      {
         "id": 2,
         "nombre": "JavaScript Avanzado",
         "categoria": "frontend",
         "descripcion": "Profundiza en JavaScript para crear aplicaciones interactivas y manejar eventos del DOM.",
-        "tecnologias": ["JavaScript", "ES6+", "APIs", "DOM"],
-        "horas": "30",
-        "img": "https://example.com/img/js-advanced-project.png"
-    },
-    {
+        "tecnologias": [
+          "JavaScript",
+          "ES6+",
+          "APIs",
+          "DOM"
+        ],
+        "horas": 30,
+        "img": "frontend.jpg"
+      },
+      {
         "id": 3,
         "nombre": "Desarrollo con React",
         "categoria": "frontend",
         "descripcion": "Aprende a crear aplicaciones modernas de frontend utilizando React y sus componentes.",
-        "tecnologias": ["React", "Hooks", "Context API", "React Router"],
-        "horas": "40",
-        "img": "https://example.com/img/react-project.png"
-    },
-    {
+        "tecnologias": [
+          "React",
+          "Hooks",
+          "Context API",
+          "React Router"
+        ],
+        "horas": 40,
+        "img": "frontend.jpg"
+      },
+      {
         "id": 4,
         "nombre": "Introducción a Node.js",
         "categoria": "backend",
         "descripcion": "Domina Node.js para desarrollar servidores y aplicaciones web del lado del servidor.",
-        "tecnologias": ["Node.js", "Express", "REST API"],
-        "horas": "25",
-        "img": "https://example.com/img/nodejs-project.png"
-    },
-    {
+        "tecnologias": [
+          "Node.js",
+          "Express",
+          "REST API"
+        ],
+        "horas": 25,
+        "img": "backend.jpg"
+      },
+      {
         "id": 5,
         "nombre": "Bases de datos con MongoDB",
         "categoria": "backend",
         "descripcion": "Aprende a usar MongoDB para manejar bases de datos NoSQL en aplicaciones modernas.",
-        "tecnologias": ["MongoDB", "Mongoose", "NoSQL"],
-        "horas": "20",
-        "img": "https://example.com/img/mongodb-project.png"
-    },
-    {
+        "tecnologias": [
+          "MongoDB",
+          "Mongoose",
+          "NoSQL"
+        ],
+        "horas": 20,
+        "img": "backend.jpg"
+      },
+      {
         "id": 6,
         "nombre": "API REST con Django",
         "categoria": "backend",
         "descripcion": "Desarrolla APIs RESTful utilizando Django para manejar servidores robustos.",
-        "tecnologias": ["Django", "REST Framework", "Python"],
-        "horas": "30",
-        "img": "https://example.com/img/django-rest-project.png"
-    },
-    {
+        "tecnologias": [
+          "Django",
+          "REST Framework",
+          "Python"
+        ],
+        "horas": 30,
+        "img": "backend.jpg"
+      },
+      {
         "id": 7,
         "nombre": "Introducción a Python para Data Science",
-        "categoria": "datascience",
+        "categoria": "data_science",
         "descripcion": "Aprende los fundamentos de Python y cómo aplicarlos en proyectos de Data Science.",
-        "tecnologias": ["Python", "Pandas", "NumPy"],
-        "horas": "25",
-        "img": "https://example.com/img/python-data-science-project.png"
-    },
-    {
+        "tecnologias": [
+          "Python",
+          "Pandas",
+          "NumPy"
+        ],
+        "horas": 25,
+        "img": "data_science.jpg"
+      },
+      {
         "id": 8,
         "nombre": "Análisis de datos con Pandas",
-        "categoria": "datascience",
+        "categoria": "data_science",
         "descripcion": "Aprende a analizar y manipular grandes volúmenes de datos utilizando la librería Pandas.",
-        "tecnologias": ["Pandas", "NumPy", "Matplotlib"],
-        "horas": "30",
-        "img": "https://example.com/img/pandas-project.png"
-    },
-    {
+        "tecnologias": [
+          "Pandas",
+          "NumPy",
+          "Matplotlib"
+        ],
+        "horas": 30,
+        "img": "data_science.jpg"
+      },
+      {
         "id": 9,
         "nombre": "Machine Learning con Scikit-learn",
-        "categoria": "datascience",
+        "categoria": "data_science",
         "descripcion": "Domina los conceptos básicos de Machine Learning utilizando Scikit-learn para crear modelos predictivos.",
-        "tecnologias": ["Scikit-learn", "Python", "Machine Learning"],
-        "horas": "35",
-        "img": "https://example.com/img/ml-project.png"
-    },
-    {
+        "tecnologias": [
+          "Scikit-learn",
+          "Python",
+          "Machine Learning"
+        ],
+        "horas": 35,
+        "img": "data_science.jpg"
+      },
+      {
         "id": 10,
         "nombre": "Introducción a Docker",
         "categoria": "devops",
         "descripcion": "Aprende a crear y gestionar contenedores utilizando Docker para entornos de desarrollo y producción.",
-        "tecnologias": ["Docker", "Containers", "Docker Compose"],
-        "horas": "20",
-        "img": "https://example.com/img/docker-project.png"
-    },
-    {
+        "tecnologias": [
+          "Docker",
+          "Containers",
+          "Docker Compose"
+        ],
+        "horas": 20,
+        "img": "devops.jpg"
+      },
+      {
         "id": 11,
         "nombre": "Automatización con Jenkins",
         "categoria": "devops",
         "descripcion": "Automatiza el pipeline de desarrollo y despliegue continuo utilizando Jenkins.",
-        "tecnologias": ["Jenkins", "CI/CD", "Automation"],
-        "horas": "25",
-        "img": "https://example.com/img/jenkins-project.png"
-    },
-    {
+        "tecnologias": [
+          "Jenkins",
+          "CI/CD",
+          "Automation"
+        ],
+        "horas": 25,
+        "img": "devops.jpg"
+      },
+      {
         "id": 12,
         "nombre": "Infraestructura como Código con Terraform",
         "categoria": "devops",
         "descripcion": "Implementa y gestiona infraestructura en la nube utilizando Terraform.",
-        "tecnologias": ["Terraform", "Cloud", "Infrastructure as Code"],
-        "horas": "30",
-        "img": "https://example.com/img/terraform-project.png"
-    },
-    {
+        "tecnologias": [
+          "Terraform",
+          "Cloud",
+          "Infrastructure as Code"
+        ],
+        "horas": 30,
+        "img": "devops.jpg"
+      },
+      {
         "id": 13,
         "nombre": "Introducción a la Seguridad Informática",
         "categoria": "cybersecurity",
         "descripcion": "Domina los conceptos clave de la ciberseguridad y cómo proteger sistemas informáticos.",
-        "tecnologias": ["Firewalls", "IDS/IPS", "Cryptography"],
-        "horas": "20",
-        "img": "https://example.com/img/cybersecurity-intro-project.png"
-    },
-    {
+        "tecnologias": [
+          "Firewalls",
+          "IDS/IPS",
+          "Cryptography"
+        ],
+        "horas": 20,
+        "img": "cybersecurity.jpg"
+      },
+      {
         "id": 14,
         "nombre": "Ethical Hacking Básico",
         "categoria": "cybersecurity",
         "descripcion": "Aprende técnicas básicas de hacking ético y cómo realizar pruebas de penetración en sistemas.",
-        "tecnologias": ["Kali Linux", "Metasploit", "Nmap"],
-        "horas": "30",
-        "img": "https://example.com/img/ethical-hacking-project.png"
-    },
-    {
+        "tecnologias": [
+          "Kali Linux",
+          "Metasploit",
+          "Nmap"
+        ],
+        "horas": 30,
+        "img": "cybersecurity.jpg"
+      },
+      {
         "id": 15,
         "nombre": "Seguridad en Aplicaciones Web",
         "categoria": "cybersecurity",
         "descripcion": "Conoce las vulnerabilidades más comunes en aplicaciones web y cómo mitigarlas.",
-        "tecnologias": ["OWASP", "SQL Injection", "XSS"],
-        "horas": "25",
-        "img": "https://example.com/img/web-security-project.png"
-    }
+        "tecnologias": [
+          "OWASP",
+          "SQL Injection",
+          "XSS"
+        ],
+        "horas": 25,
+        "img": "cybersecurity.jpg"
+      }
 ]
