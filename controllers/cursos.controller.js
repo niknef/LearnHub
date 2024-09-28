@@ -29,3 +29,44 @@ export const getCursoId = (req, res) => {
     }
 
 }
+
+export const eliminarCurso = (req, res) => {
+    cursoService.elminarCurso(req.params.id)
+        .then( ( id ) => res.redirect("/cursos") )
+        .catch( (err) => res.send(cursoView.crearPagina("Error Al eliminar un curso", `<p>${err}</p>`)) )
+}
+
+export const modificarCurso = (req, res) => {
+    const id_ingresado = req.params.id;
+    cursoService.getCursoId(id_ingresado)
+        .then(curso => res.send(cursoView.crearPagina("Modificar Curso", cursoView.modificarCurso(curso))))
+        .catch((err) => res.send(cursoView.crearPagina("Error Al modificar un curso", `<p>${err}</p>`)));
+};
+
+export const actualizarCurso = (req, res) => {
+    const id = req.params.id;
+
+    const cursoActualizado = {
+        ...req.body,
+        horas: Number(req.body.horas)  
+    };
+
+    cursoService.actualizarCurso(id, cursoActualizado)
+        .then(() => res.redirect("/cursos"))
+        .catch((err) => res.send(cursoView.crearPagina("Error Al modificar un curso", `<p>${err}</p>`)));
+};
+export const nuevoCurso = (req, res) => {
+    res.send( cursoView.crearPagina("Nuevo Curso", cursoView.crearCursoNuevo() ) )
+}
+
+
+export const agregarCurso = (req, res) => {
+    const curso = {
+        ...req.body,
+        horas: Number(req.body.horas), 
+    };
+
+    cursoService.agregarCurso(curso)
+    .then( (curso) => res.redirect("/cursos") )
+    .catch( (err) => res.send(cursoView.crearPagina("Error Al agregar un curso", `<p>${err}</p>`)) );
+}

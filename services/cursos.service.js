@@ -31,3 +31,32 @@ export async function getCursoId(id_ingresado){
     return datos 
 }
 
+export async function elminarCurso(id_ingresado){
+    await client.connect()
+    await db.collection("Cursos").updateOne({ _id: ObjectId.createFromHexString(id_ingresado)}, { $set: {
+        eliminado: true
+    } })
+
+    return id_ingresado
+}
+
+export async function modificarCurso(id_ingresado, datos){
+    await client.connect()
+    const cursoModificado = await db.collection("Cursos").updateOne({ _id: ObjectId.createFromHexString(id_ingresado)}, { $set: datos })
+
+    return cursoModificado
+}
+
+export async function actualizarCurso(id, cursoModificado) {
+    await client.connect()
+    const cursoActualizado = await db.collection("Cursos").updateOne({_id: ObjectId.createFromHexString(id)}, { $set: cursoModificado })
+    return cursoActualizado
+}
+
+export async function agregarCurso(curso){
+    await client.connect()
+    await db.collection("Cursos").insertOne(curso)
+    return curso
+}
+
+

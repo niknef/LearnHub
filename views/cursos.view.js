@@ -61,9 +61,6 @@ export function crearPagina(titulo, contenido){
                     </ul>
                 </div>
             </li>
-                <li>
-                    <a href="/nosotros" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">Nosotros</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -139,6 +136,13 @@ export function crearCursos(cursos, categoria) {
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
             </svg>
             </a>
+            
+            <a href="/cursos/nuevo" type="button" class="flex justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2">
+            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
+            </svg>
+            </a>
+
         </div>
     </div>
     <section class="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
@@ -190,7 +194,32 @@ export function crearCursos(cursos, categoria) {
 
 export function detalleCurso(curso){
     let html = `
-    <a href="/" type="button" class="mt-10 ms-6 text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver al inicio</a>
+
+    <div class="flex justify-between items-center mt-6 mx-4">
+        
+        <a href="/" type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 ms-4 ">
+            Volver al inicio
+        </a>
+
+        <div class="flex space-x-4 me-4">
+            <a href="/cursos/modificar/${curso._id}" type="button" class="flex justify-center items-center text-white bg-green-400 hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2">
+            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
+            </svg>
+
+
+
+            </a>
+
+            <a href="/cursos/eliminar/${curso._id}" type="button" class="flex justify-center items-center text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2">
+            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+            </svg>
+
+
+            </a>
+        </div>
+    </div>
     <article class="flex bg-white mx-auto mt-10 shadow-lg rounded-lg w-1/2">
 
         <div class="hidden sm:block sm:basis-56">
@@ -242,12 +271,17 @@ export function detalleCurso(curso){
 
 export function crearCursoNuevo(){
     let html = `
-    <h1> Agregar un curso </h1>
-    <form action='/cursos/nuevo' class="max-w-md mx-auto">
+    <a href="/" type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 ms-6 mt-6 ">
+    Volver al inicio
+    </a>
+    <h1 class="text-3xl font-light text-gray-600 my-4 text-center"> Agregar un curso </h1>
+
+    <form action='/cursos/nuevo' method='post' class="max-w-md mx-auto">
     <div class="relative z-0 w-full mb-5 group">
         <input type="text" name="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label for="nombre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del curso</label>
     </div>
+    
 
     <!-- Select para categoría -->
     <div class="relative z-0 w-full mb-5 group">
@@ -260,6 +294,12 @@ export function crearCursoNuevo(){
         <option value="cybersecurity">Cybersecurity</option>
         </select>
         <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Categoría</label>
+    </div>
+
+    <!-- Campo para imagen -->
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="text" name="img" value="default.jpg" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+        <label for="imagen" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Nombre de la imagen (ej. curso.png)</label>
     </div>
 
     <!-- Descripción -->
@@ -330,29 +370,51 @@ export function crearCursoNuevo(){
 
 export function modificarCurso(curso){
     let html = `
-    <h1> Modicar curso </h1>
-    <form action='/cursos/modificar/${curso._id}' class="max-w-md mx-auto">
+    <a href="/" type="button" class="mt-6 text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 ms-6 ">
+            Volver al inicio
+        </a>
+    <h1 class="text-3xl font-light text-gray-600 my-4 text-center"> Modicar curso <span class="font-medium"> ${curso.nombre}</span></h1>
+    <form action='/cursos/modificar/${curso._id}' method='post' class="max-w-md mx-auto mt-8">
     <div class="relative z-0 w-full mb-5 group">
-        <input type="text" name="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+
+        <input type="text" name="nombre" value="${curso.nombre}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"/>
+        
         <label for="nombre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del curso</label>
     </div>
 
     <!-- Select para categoría -->
     <div class="relative z-0 w-full mb-5 group">
-        <select name="categoria" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
-        <option value="" disabled selected>Seleccionar categoría</option>
-        <option value="frontend">Frontend</option>
-        <option value="backend">Backend</option>
-        <option value="devops">DevOps</option>
-        <option value="datascience">Data Science</option>
-        <option value="cybersecurity">Cybersecurity</option>
-        </select>
-        <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Categoría</label>
+        
+    <select name="categoria" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+        
+    <option value="${curso.categoria}" disabled selected>${curso.categoria}</option>
+        
+    <option value="frontend">Frontend</option>
+        
+    <option value="backend">Backend</option>
+        
+    <option value="devops">DevOps</option>
+        
+    <option value="data_science">Data Science</option>
+        
+    <option value="cybersecurity">Cybersecurity</option>
+    
+    </select>
+        
+    <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Categoría</label>
+    
+    </div>
+
+    <!-- Campo para imagen -->
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="text" name="img" value="${curso.img}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" />
+        <label for="imagen" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Nombre de la imagen (ej. curso.png)</label>
     </div>
 
     <!-- Descripción -->
     <div class="relative z-0 w-full mb-5 group">
-        <textarea name="descripcion" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required></textarea>
+        <textarea name="descripcion" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="${curso.descripcion}">${curso.descripcion}</textarea>
+        
         <label for="descripcion" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Descripción</label>
     </div>
 
@@ -364,51 +426,69 @@ export function modificarCurso(curso){
         <!-- Grid de dos columnas -->
         <div class="grid grid-cols-2 gap-2 ">
             <div class="flex items-center mb-4">
-                <input id="html" type="checkbox" name="tecnologias" value="HTML" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="html" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">HTML</label>
+                
+            <input id="html" type="checkbox" name="tecnologias" value="HTML" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="html" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">HTML</label>
             </div>
 
             <div class="flex items-center mb-4">
-                <input id="css" type="checkbox" name="tecnologias" value="CSS" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="css" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">CSS</label>
+                
+            <input id="css" type="checkbox" name="tecnologias" value="CSS" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="css" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">CSS</label>
             </div>
 
             <div class="flex items-center mb-4">
-                <input id="javascript" type="checkbox" name="tecnologias" value="JavaScript" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="javascript" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">JavaScript</label>
+                
+            <input id="javascript" type="checkbox" name="tecnologias" value="JavaScript" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="javascript" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">JavaScript</label>
             </div>
 
             <div class="flex items-center mb-4">
-                <input id="api" type="checkbox" name="tecnologias" value="API" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="api" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">API</label>
+                
+            <input id="api" type="checkbox" name="tecnologias" value="API" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="api" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">API</label>
             </div>
 
             <div class="flex items-center mb-4">
-                <input id="linux" type="checkbox" name="tecnologias" value="Linux" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="linux" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Linux</label>
+                
+            <input id="linux" type="checkbox" name="tecnologias" value="Linux" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="linux" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Linux</label>
             </div>
 
             <div class="flex items-center mb-4">
-                <input id="node" type="checkbox" name="tecnologias" value="Node.js" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="node" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Node.js</label>
+                
+            <input id="node" type="checkbox" name="tecnologias" value="Node.js" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="node" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Node.js</label>
             </div>
 
             <div class="flex items-center mb-4">
-                <input id="express" type="checkbox" name="tecnologias" value="Express" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="express" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Express</label>
+                
+            <input id="express" type="checkbox" name="tecnologias" value="Express" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="express" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Express</label>
             </div>
 
             <div class="flex items-center mb-4">
-                <input id="otros" type="checkbox" name="tecnologias" value="Otros" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="otros" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Otros</label>
+                
+            <input id="otros" type="checkbox" name="tecnologias" value="Otros" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                
+            <label for="otros" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Otros</label>
             </div>
         </div>
     </div>
 
     <!-- Input para horas del curso (solo números) -->
     <div class="relative z-0 w-full mb-5 group">
-        <input type="number" name="horas" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="horas" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Horas del curso</label>
+        
+    <input type="number" name="horas" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="${curso.horas}"/>
+        
+    <label for="horas" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Horas del curso</label>
     </div>
 
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
