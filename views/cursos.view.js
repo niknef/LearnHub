@@ -61,6 +61,10 @@ export function crearPagina(titulo, contenido){
                     </ul>
                 </div>
             </li>
+
+            <li>
+                    <a href="/clientes" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">Clientes</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -88,7 +92,7 @@ export function crearHome(){
                     <p class="mt-4 text-lg font-light text-gray-600">
                         En <span class="font-normal text-blue-600/75">Learn<span class="text-blue-800">Hub</span></span>, te ofrecemos cursos diseñados para que avances en tu carrera profesional. Aprende de manera flexible y a tu ritmo, con el respaldo de expertos en cada área.
                     </p>
-                    <button type="button" class="text-white bg-gradient-to-br mt-4 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-2.5 text-center me-2 mb-2">Suscríbete</button>
+                    <a type="button" href="/clientes/nuevo" class="text-white bg-gradient-to-br mt-4 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-2.5 text-center me-2 mb-2">Suscríbete</a>
             </div>
         </div>
     </section>
@@ -192,78 +196,75 @@ export function crearCursos(cursos, categoria) {
 }
 
 
-export function detalleCurso(curso){
+export function detalleCurso(curso) {
     let html = `
-
     <div class="flex justify-between items-center mt-6 mx-4">
-        
-        <a href="/" type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 ms-4 ">
+        <a href="/" type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 ms-4">
             Volver al inicio
         </a>
 
         <div class="flex space-x-4 me-4">
             <a href="/cursos/modificar/${curso._id}" type="button" class="flex justify-center items-center text-white bg-green-400 hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2">
-            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
-            </svg>
-
-
-
+                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
+                </svg>
             </a>
 
             <a href="/cursos/eliminar/${curso._id}" type="button" class="flex justify-center items-center text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2">
-            <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
-            </svg>
-
-
+                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+                </svg>
             </a>
         </div>
     </div>
     <article class="flex bg-white mx-auto mt-10 shadow-lg rounded-lg w-1/2">
-
         <div class="hidden sm:block sm:basis-56">
             <img
-            alt="${curso.nombre}"
-            src="../img/${curso.img}"
-            class="h-full w-full object-cover rounded-l-lg"
+                alt="${curso.nombre}"
+                src="../img/${curso.img}"
+                class="h-full w-full object-cover rounded-l-lg"
             />
         </div>
 
         <div class="flex flex-1 flex-col justify-between">
             <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-            <a href="#">
-                <h2 class="font-medium text-xl uppercase text-gray-900">
-                ${curso.nombre}
-                </h2>
-            </a>
+                <a href="#">
+                    <h2 class="font-medium text-xl uppercase text-gray-900">
+                        ${curso.nombre}
+                    </h2>
+                </a>
 
-            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                ${curso.descripcion}
-            </p>
+                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                    ${curso.descripcion}
+                </p>
 
-
-            <div class="flex items-center flex-wrap ml-0">
-                <svg class="w-[19px] h-[19px] text-gray-400 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.9" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                </svg>
-
-                <p class="mt-2 ml-1 mb-2 line-clamp-3 text-sm/relaxed text-gray-400">
-                Duración: ${curso.horas} horas
-            </p>
+                <div class="flex items-center flex-wrap ml-0">
+                    <svg class="w-[19px] h-[19px] text-gray-400 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.9" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                    </svg>
+                    <p class="mt-2 ml-1 mb-2 line-clamp-3 text-sm/relaxed text-gray-400">
+                        Duración: ${curso.horas} horas
+                    </p>
                 </div>
             
-            
-            <div class="flex items-center flex-wrap"> 
-            `;
-            curso.tecnologias.forEach(tag => {
-                html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 mt-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${tag}</span>`;
-            });
-            html += `
-            </div>
+                <div class="flex items-center flex-wrap"> 
+                `;
+
+                // Verificar si tecnologias es un array o un único valor
+                if (Array.isArray(curso.tecnologias)) {
+                    curso.tecnologias.forEach(tag => {
+                        html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 mt-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${tag}</span>`;
+                    });
+                } else {
+                    // Si no es un array, crear un solo badge
+                    html += `<span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 mt-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">${curso.tecnologias}</span>`;
+                }
+
+                html += `
+                </div>
             </div>
         </div>
-        </article>
+    </article>
     `;
 
     return html;
@@ -278,6 +279,7 @@ export function crearCursoNuevo(){
 
     <form action='/cursos/nuevo' method='post' class="max-w-md mx-auto">
     <div class="relative z-0 w-full mb-5 group">
+        <form action='/cursos/nuevo' method='post' class="max-w-md mx-auto">
         <input type="text" name="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label for="nombre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del curso</label>
     </div>

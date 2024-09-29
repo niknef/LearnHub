@@ -1,0 +1,8 @@
+{
+    
+    "nombre": "Nicolas",
+    "foto": "user.png",
+    "descripcion": "Soy el primer usuario de esta API",
+    "cursos": [],  
+    "eliminado": false
+  }

@@ -15,6 +15,9 @@ export async function getCursos(filtros = {}) {
         const order = filtros.ordenDuracion.toLowerCase() === 'asc' ? 1 : -1;
         sortCriteria.horas = order; // Ordenamos por el campo 'horas' en ascendente (1) o descendente (-1)
     }
+    if (filtros.clienteId !== undefined) {
+        filterMongo.clienteId = { $eq: filtros.clienteId };
+    }
 
     await client.connect();
     return db.collection("Cursos")

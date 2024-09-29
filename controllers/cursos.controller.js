@@ -8,7 +8,7 @@ export const getHome = (req, res) => {
 export const getCursos = (req, res) => {
     const filtros = req.query; // Obtenemos los filtros de la URL
     const categoria = req.query.categoria || undefined; // Captura la categoría de la query
-
+    
     cursoService.getCursos(filtros) // Pasamos los filtros a la función getCursos
         .then(cursos => {
             res.send(cursoView.crearPagina("Listado de cursos", cursoView.crearCursos(cursos, categoria)))
@@ -55,6 +55,7 @@ export const actualizarCurso = (req, res) => {
         .then(() => res.redirect("/cursos"))
         .catch((err) => res.send(cursoView.crearPagina("Error Al modificar un curso", `<p>${err}</p>`)));
 };
+
 export const nuevoCurso = (req, res) => {
     res.send( cursoView.crearPagina("Nuevo Curso", cursoView.crearCursoNuevo() ) )
 }
