@@ -15,9 +15,6 @@ export async function getCursos(filtros = {}) {
         const order = filtros.ordenDuracion.toLowerCase() === 'asc' ? 1 : -1;
         sortCriteria.horas = order; // Ordenamos por el campo 'horas' en ascendente (1) o descendente (-1)
     }
-    if (filtros.clienteId !== undefined) {
-        filterMongo.clienteId = { $eq: filtros.clienteId };
-    }
 
     await client.connect();
     return db.collection("Cursos")
@@ -34,7 +31,7 @@ export async function getCursoId(id_ingresado){
     return datos 
 }
 
-export async function elminarCurso(id_ingresado){
+export async function eliminarCurso(id_ingresado){
     await client.connect()
     await db.collection("Cursos").updateOne({ _id: ObjectId.createFromHexString(id_ingresado)}, { $set: {
         eliminado: true

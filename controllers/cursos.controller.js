@@ -31,7 +31,7 @@ export const getCursoId = (req, res) => {
 }
 
 export const eliminarCurso = (req, res) => {
-    cursoService.elminarCurso(req.params.id)
+    cursoService.eliminarCurso(req.params.id)
         .then( ( id ) => res.redirect("/cursos") )
         .catch( (err) => res.send(cursoView.crearPagina("Error Al eliminar un curso", `<p>${err}</p>`)) )
 }
