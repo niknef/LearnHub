@@ -217,16 +217,16 @@ export function detalleCurso(curso) {
             </a>
         </div>
     </div>
-    <article class="flex bg-white mx-auto mt-10 shadow-lg rounded-lg w-1/2">
-        <div class="hidden sm:block sm:basis-56">
+    <article class="flex bg-white mx-auto mt-10 shadow-lg rounded-lg max-w-2xl">
+        <div class="w-1/2">
             <img
                 alt="${curso.nombre}"
                 src="../img/${curso.img}"
-                class="h-full w-full object-cover rounded-l-lg"
+                class="h-full object-fill rounded-l-lg"
             />
         </div>
 
-        <div class="flex flex-1 flex-col justify-between">
+        <div class="flex flex-1 flex-col justify-between w-1/2">
             <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                 <a href="#">
                     <h2 class="font-medium text-xl uppercase text-gray-900">
