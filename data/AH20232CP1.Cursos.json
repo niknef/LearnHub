@@ -7,7 +7,8 @@
   "descripcion": "Aprende los conceptos básicos de HTML y CSS para construir sitios web estáticos y estilizados.",
   "tecnologias": ["HTML", "CSS", "Flexbox", "Grid"],
   "horas": 20,
-  "img": "frontend.jpg"
+  "img": "frontend.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -23,7 +24,8 @@
     "DOM"
   ],
   "horas": 30,
-  "img": "frontend.jpg"
+  "img": "frontend.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -39,7 +41,8 @@
     "React Router"
   ],
   "horas": 40,
-  "img": "frontend.jpg"
+  "img": "frontend.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -54,7 +57,8 @@
     "REST API"
   ],
   "horas": 25,
-  "img": "backend.jpg"
+  "img": "backend.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -69,7 +73,8 @@
     "NoSQL"
   ],
   "horas": 20,
-  "img": "backend.jpg"
+  "img": "backend.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -84,7 +89,8 @@
     "Python"
   ],
   "horas": 30,
-  "img": "backend.jpg"
+  "img": "backend.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -99,7 +105,8 @@
     "NumPy"
   ],
   "horas": 25,
-  "img": "data_science.jpg"
+  "img": "data_science.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -114,7 +121,8 @@
     "Matplotlib"
   ],
   "horas": 30,
-  "img": "data_science.jpg"
+  "img": "data_science.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -129,7 +137,8 @@
     "Machine Learning"
   ],
   "horas": 35,
-  "img": "data_science.jpg"
+  "img": "data_science.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -144,7 +153,8 @@
     "Docker Compose"
   ],
   "horas": 20,
-  "img": "devops.jpg"
+  "img": "devops.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -159,7 +169,8 @@
     "Automation"
   ],
   "horas": 25,
-  "img": "devops.jpg"
+  "img": "devops.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -174,7 +185,8 @@
     "Infrastructure as Code"
   ],
   "horas": 30,
-  "img": "devops.jpg"
+  "img": "devops.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -189,7 +201,8 @@
     "Cryptography"
   ],
   "horas": 20,
-  "img": "cybersecurity.jpg"
+  "img": "cybersecurity.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -204,7 +217,8 @@
     "Nmap"
   ],
   "horas": 30,
-  "img": "cybersecurity.jpg"
+  "img": "cybersecurity.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 },
 {
   "_id": {
@@ -219,5 +233,6 @@
     "XSS"
   ],
   "horas": 25,
-  "img": "cybersecurity.jpg"
+  "img": "cybersecurity.jpg",
+  "link": "https://github.com/niknef/LearnHub"
 }]
