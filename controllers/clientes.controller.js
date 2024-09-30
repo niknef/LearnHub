@@ -1,11 +1,11 @@
-import * as clienteService from "../services/clientes.service.js";
-import * as cursoService from "../services/cursos.service.js";
-import * as clienteView from "../views/clientes.view.js";
-import * as cursoView from "../views/cursos.view.js";
+import * as clienteService from "../services/clientes.service.js"; // Importar el servicio de clientes
+import * as cursoService from "../services/cursos.service.js"; // Importar el servicio de cursos
+import * as clienteView from "../views/clientes.view.js"; // Importar las vistas de clientes
+import * as cursoView from "../views/cursos.view.js"; // Importar las vistas de cursos
 
 // Obtener todos los clientes
 export const getClientes = (req, res) => {
-    clienteService.getClientes()
+    clienteService.getClientes() // Llama al servicio para obtener los clientes
         .then(clientes => {
             res.send(cursoView.crearPagina("Listado de Clientes", clienteView.crearCardsClientes(clientes)));
         })
@@ -22,10 +22,7 @@ export const nuevoCliente = (req, res) => {
 
 // Agregar nuevo cliente
 export const agregarCliente = (req, res) => {
-    const cliente = {
-        ...req.body,
-        cursos: [] // Inicializa cursos como un array vacío
-    };
+    const cliente = req.body;
     
     clienteService.agregarCliente(cliente)
         .then(() => res.redirect("/clientes"))
@@ -39,6 +36,7 @@ export const agregarCliente = (req, res) => {
 // Mostrar formulario para modificar un cliente
 export const modificarCliente = (req, res) => {
     const id = req.params.id;
+
     clienteService.getClienteId(id)
         .then(cliente => res.send(cursoView.crearPagina("Modificar Cliente", clienteView.modificarCliente(cliente))))
         .catch(error => {
@@ -53,7 +51,7 @@ export const actualizarCliente = (req, res) => {
     const clienteActualizado = req.body;
 
     clienteService.actualizarCliente(id, clienteActualizado)
-        .then(() => res.redirect(`/clientes`))
+        .then(() => res.redirect("/clientes"))
         .catch(error => {
             console.error(error);
             res.status(500).send("Error al actualizar cliente");
