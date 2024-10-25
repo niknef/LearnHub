@@ -1,7 +1,10 @@
 import { MongoClient, ObjectId } from "mongodb"
+import dotenv from "dotenv";
 
-const client = new MongoClient("mongodb+srv://nicolasfirpo:7xDuRNOjrqhlGPFh@learnhub-cluster.ypbz0.mongodb.net/")
-const db = client.db("AH20232CP1")
+dotenv.config();
+
+const client = new MongoClient(process.env.MONGODB_URI);
+const db = client.db("AH20232CP1");
 
 export async function getCursos(filtros = {}) {
     const filterMongo = { eliminado: { $ne: true } };
