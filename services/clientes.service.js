@@ -61,10 +61,16 @@ export async function getCursos(filtros = {}) {
         .toArray();
 }
 
-// Crear un nuevo curso en la base de datos
-export async function agregarCurso(curso) {
+
+export async function agregarCursoCliente( idCliente, idCurso) {
     await client.connect();
+    const curso = await db.collection("Cursos").findOne({ _id: ObjectId.createFromHexString(idCurso) });
+    const resultado = await db.collection("Clientes").updateOne(
+        { _id: ObjectId.createFromHexString(idCliente) },
+        { $push: { cursos: curso } }
+    );
 
     // Insertar el nuevo curso en la colección "Cursos"
-    return db.collection("Cursos").insertOne(curso);
+    return resultado.modifiedCount > 0 ? "Curso agregado" : "No se agregó el curso";
 }
+

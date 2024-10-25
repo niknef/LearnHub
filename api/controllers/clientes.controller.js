@@ -46,3 +46,12 @@ export function eliminarCliente(req, res){
         .then( (id) => res.status(202).json({id: id}) )
         .catch( (error) => res.status(500).json({error: error}) )
 }
+
+export function agregarCursoCliente(req, res){
+    const idCliente = req.body.idCliente
+    const idCurso = req.body.idCurso
+    service.agregarCursoCliente(idCliente, idCurso)
+        .then( result => res.status(201).json(result) )
+        .catch( error => res.status(404).json({error: error}) )
+}
+

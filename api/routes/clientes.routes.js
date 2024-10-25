@@ -13,4 +13,6 @@ route.patch("/clientes/:id", controller.actualizarCliente) // actualizamos un cl
 
 route.delete("/clientes/:id", controller.eliminarCliente) // eliminamos un cliente
 
+route.post( "/clientes/curso", controller.agregarCursoCliente ) // agregamos un curso a un cliente
+
 export default route
