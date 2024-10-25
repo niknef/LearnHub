@@ -5,7 +5,7 @@ export function crearPagina(titulo, contenido){
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="icon" href="../img/logo-learnhub.png" type="image/x-icon">
+            <link rel="icon" href="/img/logo-learnhub.png" type="image/x-icon">
             <title>${titulo}</title>
             <link href="../src/output.css" rel="stylesheet">
             <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
@@ -17,7 +17,7 @@ export function crearPagina(titulo, contenido){
         <nav class="border-gray-200 bg-gray-200 shadow-lg px-6 py-4 rounded-md">
             <div class="container mx-auto flex flex-wrap items-center justify-between h-10">
                 <a href="/" class="flex items-center space-x-3">
-                    <img src="../img/logo-learnhub.png" class="h-8" alt="LearnHub Logo" />
+                    <img src="/img/logo-learnhub.png" class="h-8" alt="LearnHub Logo" />
                     <h1 class="text-2xl font-semibold whitespace-nowrap text-blue-600/75">Learn<span class="text-blue-800">Hub</span></h1>
                 </a>
 

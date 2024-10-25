@@ -1,6 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb";
 
-const client = new MongoClient("mongodb://localhost:27017");
+const client = new MongoClient("mongodb+srv://nicolasfirpo:7xDuRNOjrqhlGPFh@learnhub-cluster.ypbz0.mongodb.net/");
 const db = client.db("AH20232CP1"); // Cambia el nombre si es necesario
 
 // Obtener todos los clientes (sin los eliminados)
