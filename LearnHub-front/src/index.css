@@ -1,0 +1,84 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+body{
+  background-color: #f4f2f3;
+}
+
+.navbar-custom{
+  background-color: #e0ddda;
+  
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 5px 5px 0px;
+}
+.boton-custom {
+  background-color: #01c7b3d8;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-custom:hover {
+  background-color: #009688; 
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(50, 168, 156, 0.2);
+}
+
+.boton-custom-2 {
+  background-color: #5b00b1e5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-custom-2:hover {
+  background-color: #320061e5; 
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.text-custom{
+  color: #01c7b3d8;
+}
+
+.title-custom{
+  color: #5b00b1e5;
+}
+
+.btn-admin {
+  background-color: #00cccc; /* Azul predeterminado */
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.btn-admin:hover {
+  background-color: #04a7a7; /* Azul más oscuro */
+  color: #fff;
+  transform: scale(1.05); /* Ligero efecto de agrandamiento */
+}
+
+.btn-admin i {
+  font-size: 1.5rem;
+}
+
+.card-custom:hover{
+  box-shadow: 0 4px 8px rgba(2, 224, 202, 0.2);
+  border: 1px solid #01c7b3d8;
+}
