@@ -38,6 +38,7 @@ function SessionProvider({ children }) {
     }
 
     useEffect( () => {
+        
         fetch("http://localhost:3333/api/usuarios",{
             method: "GET",
             headers: {

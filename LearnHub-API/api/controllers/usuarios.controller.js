@@ -17,3 +17,9 @@ export function login(req,res){
             res.status(400).json({ error: errorMessage });
         });
 }
+
+export function getUser(req, res){
+    service.getUser(req.usuario._id)
+        .then( (usuario) => res.status(200).json(usuario) )
+        .catch( () => res.status(400).json({ message: "No se pudo obtener el usuario" }) )
+}
