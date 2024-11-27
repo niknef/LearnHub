@@ -1,0 +1,12 @@
+[{
+    "id": "672cc910086e02ec61d98892",  
+    "user":{
+      "id": "672cc68118fee94a8fb054cb",
+      "nombre": "nicolas",
+      "apellido": "firpo",
+      "mail":"nicolas.firpo@gmail.com",
+      "role": "profesor"
+    },              
+    "foto": "perfilnico.jpg",
+    "bio": "Hola a todos! Soy Nicolás firpo, profesor de LearnHub, me encanta el mundo del desarrollo web y me encanta compartir mis conocimientos con todos ustedes!"
+}]

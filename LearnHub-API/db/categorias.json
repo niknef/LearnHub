@@ -1,0 +1,22 @@
+[
+    {
+      "nombre": "frontend",
+      "descripcion": "Desarrollo de interfaces de usuario y diseño web, enfocado en la creación de sitios web y aplicaciones interactivas utilizando tecnologías como HTML, CSS y JavaScript."
+    },
+    {
+      "nombre": "backend",
+      "descripcion": "Desarrollo del lado del servidor, enfocado en la creación de APIs, gestión de bases de datos y manejo de la lógica de negocio mediante lenguajes como Python, Node.js y frameworks como Django y Express."
+    },
+    {
+      "nombre": "data_science",
+      "descripcion": "Análisis de datos y construcción de modelos predictivos utilizando herramientas como Python, Pandas, NumPy y Scikit-learn, para extraer información y generar insights de grandes volúmenes de datos."
+    },
+    {
+      "nombre": "cybersecurity",
+      "descripcion": "Protección de sistemas informáticos y aplicaciones web contra amenazas y vulnerabilidades, incluyendo prácticas como el hacking ético, análisis de vulnerabilidades y gestión de seguridad."
+    },
+    {
+      "nombre": "devops",
+      "descripcion": "Prácticas y herramientas que integran el desarrollo y las operaciones para mejorar la eficiencia en la entrega de software, incluyendo el uso de contenedores, automatización de pipelines y gestión de infraestructura."
+    }
+  ]

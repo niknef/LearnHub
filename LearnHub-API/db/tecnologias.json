@@ -1,0 +1,178 @@
+[
+    {
+      "nombre": "HTML",
+      "descripcion": "Lenguaje de marcado básico para estructurar el contenido de páginas web."
+    },
+    {
+      "nombre": "CSS",
+      "descripcion": "Lenguaje de estilos utilizado para definir la apariencia y el diseño de una página web."
+    },
+    {
+      "nombre": "Flexbox",
+      "descripcion": "Modelo de diseño en CSS que permite crear layouts flexibles y alineados de forma fácil."
+    },
+    {
+      "nombre": "Grid",
+      "descripcion": "Sistema de diseño en CSS para crear layouts en cuadrícula en una página web."
+    },
+    {
+      "nombre": "Django",
+      "descripcion": "Framework de desarrollo web en Python, especializado en crear aplicaciones seguras y robustas."
+    },
+    {
+      "nombre": "REST Framework",
+      "descripcion": "Extensión de Django que facilita la creación de APIs RESTful."
+    },
+    {
+      "nombre": "Python",
+      "descripcion": "Lenguaje de programación versátil, utilizado en diversas áreas como desarrollo web, ciencia de datos y automatización."
+    },
+    {
+      "nombre": "Pandas",
+      "descripcion": "Librería de Python para la manipulación y análisis de datos en estructuras tabulares."
+    },
+    {
+      "nombre": "NumPy",
+      "descripcion": "Librería de Python para el cálculo numérico y el manejo de arreglos multidimensionales."
+    },
+    {
+      "nombre": "Scikit-learn",
+      "descripcion": "Librería de Python para el aprendizaje automático, que facilita la creación de modelos predictivos."
+    },
+    {
+      "nombre": "Machine Learning",
+      "descripcion": "Campo de la inteligencia artificial que permite a los sistemas aprender de datos y mejorar automáticamente."
+    },
+    {
+      "nombre": "OWASP",
+      "descripcion": "Iniciativa que ofrece pautas y herramientas para mejorar la seguridad de las aplicaciones web."
+    },
+    {
+      "nombre": "SQL Injection",
+      "descripcion": "Tipo de vulnerabilidad en aplicaciones web donde se puede inyectar código SQL malicioso."
+    },
+    {
+      "nombre": "XSS",
+      "descripcion": "Vulnerabilidad de seguridad en la que se ejecuta código JavaScript malicioso en el navegador de un usuario."
+    },
+    {
+      "nombre": "Kali Linux",
+      "descripcion": "Distribución de Linux orientada a la seguridad, utilizada para pruebas de penetración y hacking ético."
+    },
+    {
+      "nombre": "Metasploit",
+      "descripcion": "Framework de código abierto utilizado para desarrollar y ejecutar exploits en pruebas de seguridad."
+    },
+    {
+      "nombre": "Nmap",
+      "descripcion": "Herramienta de red para escanear y detectar dispositivos y servicios en una red."
+    },
+    {
+      "nombre": "Node.js",
+      "descripcion": "Entorno de ejecución para JavaScript que permite desarrollar aplicaciones del lado del servidor."
+    },
+    {
+      "nombre": "Express",
+      "descripcion": "Framework minimalista para Node.js, utilizado para crear aplicaciones web y APIs."
+    },
+    {
+      "nombre": "REST API",
+      "descripcion": "Interfaz de programación de aplicaciones que sigue los principios REST para la comunicación entre sistemas."
+    },
+    {
+      "nombre": "Matplotlib",
+      "descripcion": "Librería de Python para la visualización de datos en gráficos y diagramas."
+    },
+    {
+      "nombre": "Docker",
+      "descripcion": "Plataforma de contenedores para desarrollar, enviar y ejecutar aplicaciones de manera aislada."
+    },
+    {
+      "nombre": "Containers",
+      "descripcion": "Tecnología para empaquetar y ejecutar aplicaciones de manera aislada del sistema anfitrión."
+    },
+    {
+      "nombre": "Docker Compose",
+      "descripcion": "Herramienta que permite definir y ejecutar aplicaciones Docker multi-contenedor."
+    },
+    {
+      "nombre": "Firewalls",
+      "descripcion": "Sistemas de seguridad que controlan el tráfico de red según reglas de seguridad predeterminadas."
+    },
+    {
+      "nombre": "IDS/IPS",
+      "descripcion": "Sistemas de detección y prevención de intrusiones que monitorean y protegen redes."
+    },
+    {
+      "nombre": "Cryptography",
+      "descripcion": "Ciencia que estudia las técnicas de cifrado y protección de información."
+    },
+    {
+      "nombre": "JavaScript",
+      "descripcion": "Lenguaje de programación utilizado para añadir interactividad y dinamismo a las páginas web."
+    },
+    {
+      "nombre": "ES6+",
+      "descripcion": "Versión mejorada de JavaScript con nuevas características y mejoras de sintaxis."
+    },
+    {
+      "nombre": "APIs",
+      "descripcion": "Interfaces que permiten la comunicación entre diferentes aplicaciones o servicios."
+    },
+    {
+      "nombre": "DOM",
+      "descripcion": "Modelo de objetos del documento que permite manipular y modificar el contenido HTML desde JavaScript."
+    },
+    {
+      "nombre": "React",
+      "descripcion": "Librería de JavaScript para construir interfaces de usuario basadas en componentes."
+    },
+    {
+      "nombre": "Hooks",
+      "descripcion": "Funciones especiales de React que permiten gestionar el estado y el ciclo de vida de los componentes."
+    },
+    {
+      "nombre": "Context API",
+      "descripcion": "Herramienta de React para pasar datos entre componentes sin necesidad de 'props drilling'."
+    },
+    {
+      "nombre": "React Router",
+      "descripcion": "Biblioteca de React para gestionar la navegación y el enrutamiento en aplicaciones web."
+    },
+    {
+      "nombre": "MongoDB",
+      "descripcion": "Base de datos NoSQL orientada a documentos, utilizada para almacenar datos en formato JSON."
+    },
+    {
+      "nombre": "Mongoose",
+      "descripcion": "Biblioteca de Node.js para modelar datos en MongoDB."
+    },
+    {
+      "nombre": "NoSQL",
+      "descripcion": "Modelo de bases de datos no relacional, adecuado para manejar grandes volúmenes de datos."
+    },
+    {
+      "nombre": "Jenkins",
+      "descripcion": "Herramienta de automatización de integración continua y entrega continua (CI/CD)."
+    },
+    {
+      "nombre": "CI/CD",
+      "descripcion": "Método de desarrollo que permite la integración continua y la entrega continua de software."
+    },
+    {
+      "nombre": "Automation",
+      "descripcion": "Uso de tecnología para ejecutar tareas de manera automática, sin intervención humana."
+    },
+    {
+      "nombre": "Terraform",
+      "descripcion": "Herramienta para gestionar infraestructura como código, permitiendo la configuración de recursos en la nube."
+    },
+    {
+      "nombre": "Cloud",
+      "descripcion": "Conjunto de servicios informáticos alojados y accesibles a través de internet."
+    },
+    {
+      "nombre": "Infrastructure as Code",
+      "descripcion": "Método de gestionar y aprovisionar la infraestructura mediante archivos de configuración legibles."
+    }
+  ]

@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "672cc68118fee94a8fb054cb"
+  },
+  "role": "profesor",
+  "age": 24,
+  "passwordConfirm": null,
+  "password": "$2b$10$qMBU90vo83.nT7mDaAS72.pK7uS1rokVnZoovXAfFz5.mQBtLYCuu",
+  "email": "nicolas.firpo@davinci.edu.ar",
+  "apellido": "firpo",
+  "nombre": "nicolas"
+},
+{
+  "_id": {
+    "$oid": "672cc75a18fee94a8fb054cc"
+  },
+  "role": "profesor",
+  "age": 25,
+  "passwordConfirm": null,
+  "password": "$2b$10$H7U0Fvdm.DBFW4XWIPNC0Oov/Icw7U3DLp9fXqSLLCq14ztix/cQ.",
+  "email": "victor.villafane@davinci.edu.ar",
+  "apellido": "villafañe",
+  "nombre": "victor"
+},
+{
+  "_id": {
+    "$oid": "672cc812086e02ec61d98891"
+  },
+  "role": "alumno",
+  "age": 25,
+  "passwordConfirm": null,
+  "password": "$2b$10$s47sdLWwiAai02ANN0h2me9/cdKA6e1ebouIFsSSgg/7TQfhn9HN2",
+  "email": "abigailofe2@gmail.com",
+  "apellido": "gonzalez",
+  "nombre": "abigail"
+}]

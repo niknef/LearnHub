@@ -1,0 +1,15 @@
+import { tecnologiaSchema} from '../schemas/tecnologias.validate.js';
+
+export async function validateTecnologia(req, res, next){
+
+    try {
+        const datosValidados = await tecnologiaSchema.validate(req.body, {abortEarly: false, stripUnknown:true})
+        // abortEarly: false para que muestre todos los errores y el stripUnknown:true para que elimine los campos desconocidos
+        req.body = datosValidados
+        next()
+    } catch (error) {
+        res.status(400).json({message:error.errors})
+    }
+
+}
+
