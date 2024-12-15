@@ -103,6 +103,9 @@ const NavBar = () => {
                         <Link to="/admin/tecnologias" className="btn btn-link text-decoration-none text-dark">
                             <i className="bi bi-cpu me-2"></i> Administrar Tecnologías
                         </Link>
+                        <Link to="/admin/usuarios" className="btn btn-link text-decoration-none text-dark">
+                            <i className="bi bi-people me-2"></i> Administrar Usuarios
+                        </Link>
                     </div>
                 </div>
             )}

@@ -8,6 +8,8 @@ const route = Router();
 
 route.post('/usuarios', [validateUser],controller.createUser);
 route.post('/usuarios/login', [validateLogin], controller.login);
-route.get( "/usuarios",[validateToken], controller.getUser )
+route.get("/usuarios", [validateToken], controller.getUsuarios); // Obtener todos los usuarios
+route.get("/usuarios/:id", [validateToken], controller.getUser); // Obtener un usuario por ID
+route.patch("/usuarios/:id", [validateToken], controller.actualizarUsuario)
 
 export default route;

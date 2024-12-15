@@ -82,3 +82,21 @@ body{
   box-shadow: 0 4px 8px rgba(2, 224, 202, 0.2);
   border: 1px solid #01c7b3d8;
 }
+.action-btn {
+  min-width: 150px; /* Establece un ancho mínimo */
+  text-align: center;
+  font-size: 0.9rem; /* Asegura el mismo tamaño de fuente */
+  padding: 0.5rem; /* Espaciado interno consistente */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido */
+}
+
+.action-btn i {
+  margin-right: 5px; /* Espacio entre el ícono y el texto */
+}
+
+.action-btn:hover {
+  transform: scale(1.05); /* Agrega un efecto sutil al pasar el mouse */
+  transition: transform 0.2s ease-in-out;
+}

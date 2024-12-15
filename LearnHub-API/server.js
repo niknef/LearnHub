@@ -29,6 +29,7 @@ app.use("/api", apiProfesorRoute);
 app.use("/api", apiUsuarioRoute);
 app.use("/api", apiTecnologiaRoute);
 app.use("/api", apiCategoriaRoute);
+app.use("/api", apiUsuarioRoute);
 
 
 

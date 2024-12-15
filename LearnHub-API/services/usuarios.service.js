@@ -51,3 +51,17 @@ export async function getUser(id){
     return { ...existe, password: undefined }
 }
 
+export async function actualizarUsuario(id, data) {
+    await client.connect();
+    const result = await db.collection("Usuarios").updateOne(
+        { _id: new ObjectId(id) },
+        { $set: data }
+    );
+
+    return result.modifiedCount > 0;
+}
+
+export async function getUsuarios(){
+    await client.connect();
+    return await usuarios.find().toArray();
+}

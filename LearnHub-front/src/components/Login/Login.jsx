@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLogin } from '../../contexts/session.context'
 import { login } from '../../services/auth.service'
-const Login = () => {
 
+const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('') // Estado para el mensaje de error
 
     const navigate = useNavigate()
-
     const onLogin = useLogin()
 
     const handleSubmit = async(e) => {
@@ -16,14 +16,14 @@ const Login = () => {
 
         login({ email, password })
         .then( usuario => {
-          console.log(usuario)
+            console.log(usuario)
             onLogin( usuario.token )
             navigate('/')
         })
         .catch( error => {
-            console.log(error)
+            console.error("Error al iniciar sesión:", error)
+            setError('Correo electrónico o contraseña incorrectos') // Establece el mensaje de error
         })
-
     }
 
     const handleChangeEmail = (event) => {
@@ -42,6 +42,14 @@ const Login = () => {
           style={{ width: '350px', backgroundColor: '#f9f9f9' }}
         >
           <h1 className="text-center mb-4 text-custom">Iniciar Sesión</h1>
+          
+          {/* Mostrar mensaje de error */}
+          {error && (
+            <div className="alert alert-danger text-center" role="alert">
+              {error}
+            </div>
+          )}
+          
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Correo Electrónico</label>
             <input 

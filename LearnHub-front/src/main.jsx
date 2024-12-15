@@ -35,6 +35,8 @@ import CrearTecnologia from './components/Admin/CrearTecnologia.jsx';
 import EditarTecnologia from './components/Admin/EditarTecnologia.jsx';
 import EditarCategoria from './components/Admin/EditarCategoria.jsx';
 import EditarCurso from './components/Admin/EditarCurso.jsx';
+import AdminUsuarios from './components/Admin/AdminUsuarios.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -95,6 +97,10 @@ const router = createBrowserRouter([
         element: <AdminRoute><AdminTecnologias /></AdminRoute>
       },
       {
+        path: "/admin/usuarios",
+        element: <AdminRoute><AdminUsuarios /></AdminRoute>
+      },
+      {
         path: "/admin/cursos/eliminar/:id",
         element: <AdminRoute><ConfirmDeleteCurso /></AdminRoute>
       },
@@ -129,7 +135,7 @@ const router = createBrowserRouter([
       {
         path: "/admin/cursos/editar/:id",
         element: <AdminRoute><EditarCurso /></AdminRoute>
-      },
+      }
     
     
 
