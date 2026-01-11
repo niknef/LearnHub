@@ -1,6 +1,15 @@
 # LearnHub - Plataforma de Gestión de Cursos
 
 LearnHub es una plataforma diseñada para conectar profesores y estudiantes, ofreciendo herramientas de administración para cursos, categorías y tecnologías. La aplicación permite una experiencia intuitiva para la creación, edición y exploración del contenido.
+---
+
+## 🖼️ Capturas
+
+### Home / Exploración de cursos
+![Home - LearnHub](docs/images/preview1.png)
+
+### Panel Admin / Gestión
+![Panel Admin - LearnHub](docs/images/preview2.png)
 
 ---
 
